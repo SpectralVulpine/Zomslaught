@@ -5,12 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import com.SpectralVulpine.zomslaught.Zomslaught;
-
 public class SpawnListener implements Listener{
-	
-	public SpawnListener (Zomslaught z){
-	}
 	
 	@EventHandler
 	// Turns all zombie spawns into baby zombies
