@@ -3,10 +3,17 @@ version: 0.0.2
 main: com.SpectralVulpine.zomslaught.Zomslaught
 commands:
   zomslaught:
-    description: Primary Zomslaught command. Type /zomslaught help for more details.
+    description: Primary Zomslaught command
     usage: /zomslaught [command]
     permission: zomslaught.basic
     permission-message: You do not have the power to control the Zomslaught...
+  zombietime:
+    description: Dummy time get command
+    usage: /zombietime
+    permission: zomslaught.basic
+    permission-message: Nope.
 permissions:
   zomslaught.admin:
     default: op
+  zomslaught.basic:
+   default: true
