@@ -1,10 +1,13 @@
 package com.SpectralVulpine.zomslaught.runnables;
 
+import java.util.Random;
+
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.SpectralVulpine.zomslaught.Zomslaught;
 
 public class FrightNight extends BukkitRunnable{
+	public Random random = new Random();
 	public String frightMode;
 	public Zomslaught plugin;
 	public boolean frightActive = false;
@@ -38,7 +41,8 @@ public class FrightNight extends BukkitRunnable{
 	public void activate() {
 		// TODO: Add more frights
 		// TODO: Randomly pick which fright to use
-		setMode("baby");
+		String[] frights = {"baby", "invisible", "strength"};
+		setMode(frights[random.nextInt(frights.length)]);
 		frightActive = true;
 	}
 	
