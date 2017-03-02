@@ -1,5 +1,5 @@
 name: Zomslaught
-version: 0.0.2
+version: 0.0.3
 main: com.SpectralVulpine.zomslaught.Zomslaught
 commands:
   zomslaught:
@@ -8,7 +8,7 @@ commands:
     permission: zomslaught.basic
     permission-message: You do not have the power to control the Zomslaught...
   zombietime:
-    description: Dummy time get command
+    description: Dummy command, does stuff
     usage: /zombietime
     permission: zomslaught.basic
     permission-message: Nope.
