@@ -24,7 +24,7 @@ class Warning extends BukkitRunnable{
 	
 	public Warning(String warningType) {
 		if (warningType.equals("baby")) {
-			subtitle = "§3Babies' Night Out";
+			subtitle = "§3The Younglings Strike";
 		}
 		else if (warningType.equals("invisible")) {
 			subtitle = "§7Now you see me...";

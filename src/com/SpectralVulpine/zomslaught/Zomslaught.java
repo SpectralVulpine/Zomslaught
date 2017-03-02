@@ -33,6 +33,7 @@ public class Zomslaught extends JavaPlugin{
 	}
 	
 	public String getActiveWorldName() {
+		// Find the world not named "world" and return it
 		List<World> worldList = Bukkit.getWorlds();
 		
 		for (World world : worldList) {

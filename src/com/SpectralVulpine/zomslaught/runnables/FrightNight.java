@@ -39,8 +39,6 @@ public class FrightNight extends BukkitRunnable{
 	}
 	
 	public void activate() {
-		// TODO: Add more frights
-		// TODO: Randomly pick which fright to use
 		String[] frights = {"baby", "invisible", "strength"};
 		setMode(frights[random.nextInt(frights.length)]);
 		frightActive = true;

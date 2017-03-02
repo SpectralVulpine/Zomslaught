@@ -19,12 +19,13 @@ public class Commands implements CommandExecutor{
 				/*if (args.length == 0) {
 					sender.sendMessage(cmd.getUsage());  // TODO: Make a message that outlines all commands
 				}*/
-				if (args[0].equalsIgnoreCase("fright")) {
-					if (args[1].equalsIgnoreCase("activate")) {
-						sender.sendMessage("What have you done?!");
-						sender.sendMessage("Tonight will now be §4very dangerous!");
-						plugin.fright.run();
-					}
+				if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == false) {
+					sender.sendMessage("What have you done?!");
+					sender.sendMessage("Tonight will now be §4very dangerous!");
+					plugin.fright.run();
+				} 
+				else if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == true) {
+					sender.sendMessage("§cFright Night is already active. Wait a minute before trying again.");
 				} else {
 					sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
 				}
