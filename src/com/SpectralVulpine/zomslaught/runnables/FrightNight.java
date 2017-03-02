@@ -1,6 +1,5 @@
 package com.SpectralVulpine.zomslaught.runnables;
 
-//import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.SpectralVulpine.zomslaught.Zomslaught;
@@ -15,6 +14,8 @@ public class FrightNight extends BukkitRunnable{
 	}
 	
 	public void run() {
+		activate();
+		plugin.titles.warning();
 		new Deactivate(this).runTaskLater(plugin, 1200);
 	}
 	
@@ -26,9 +27,8 @@ public class FrightNight extends BukkitRunnable{
 		return frightMode;
 	}
 	
-	public void setActive(String mode) {
-		setMode(mode);
-		frightActive = true;
+	public void setActive() {
+		frightActive = !frightActive;
 	}
 	
 	public boolean getActive() {
@@ -38,7 +38,8 @@ public class FrightNight extends BukkitRunnable{
 	public void activate() {
 		// TODO: Add more frights
 		// TODO: Randomly pick which fright to use
-		setActive("baby");
+		setMode("baby");
+		frightActive = true;
 	}
 	
 	public void deactivate() {

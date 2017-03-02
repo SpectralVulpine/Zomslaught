@@ -16,11 +16,12 @@ public class SpawnListener implements Listener{
 	}
 	
 	@EventHandler
-	// Turns all zombie spawns into baby zombies
 	public void onMobSpawn(CreatureSpawnEvent e) {
-		if (e.getEntity() instanceof Zombie && fright.getMode() == "baby") {
-			Zombie z = (Zombie)e.getEntity();
-			z.setBaby(true);	
+		if (fright.getActive()) {
+			if (e.getEntity() instanceof Zombie && fright.getMode() == "baby") {
+				Zombie z = (Zombie)e.getEntity();
+				z.setBaby(true);	
+			}
 		}
 	}
 }

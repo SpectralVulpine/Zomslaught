@@ -19,22 +19,23 @@ public class Commands implements CommandExecutor{
 				/*if (args.length == 0) {
 					sender.sendMessage(cmd.getUsage());  // TODO: Make a message that outlines all commands
 				}*/
-				if (args[0] == "fright") {
-					if (args[1] == "activate") {
+				if (args[0].equalsIgnoreCase("fright")) {
+					if (args[1].equalsIgnoreCase("activate")) {
 						sender.sendMessage("What have you done?!");
 						sender.sendMessage("Tonight will now be §4very dangerous!");
-						plugin.fright.activate();
+						plugin.fright.run();
 					}
+				} else {
+					sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
 				}
-				sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
 			}
 			return true;
 		}
-		if (cmd.getName().equalsIgnoreCase("zombietime")) {
+		/*if (cmd.getName().equalsIgnoreCase("zombietime")) {
 //			sender.sendMessage(Long.toString(Bukkit.getWorld("world").getTime()));
 			plugin.titles.warning();
 			return true;
-		}
+		}*/
 		return false;
 	}
 	
