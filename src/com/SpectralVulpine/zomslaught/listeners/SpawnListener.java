@@ -5,13 +5,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import com.SpectralVulpine.zomslaught.time.Fright;
+import com.SpectralVulpine.zomslaught.runnables.FrightNight;
 
 public class SpawnListener implements Listener{
 	
-	public Fright fright;
+	public FrightNight fright;
 	
-	public SpawnListener(Fright f) {
+	public SpawnListener(FrightNight f) {
 		fright = f;
 	}
 	
