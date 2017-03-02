@@ -18,7 +18,7 @@ public class FrightNight extends BukkitRunnable{
 	
 	public void run() {
 		activate();
-		plugin.titles.warning();
+		plugin.titles.warning(getMode());
 		new Deactivate(this).runTaskLater(plugin, 1200);
 	}
 	
@@ -47,7 +47,7 @@ public class FrightNight extends BukkitRunnable{
 	}
 	
 	public void deactivate() {
-		frightActive = false;		
+		frightActive = false;	
 	}
 }
 

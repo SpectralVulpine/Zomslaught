@@ -12,14 +12,27 @@ public class TitleManager {
 		plugin = zom;
 	}
 	
-	public void warning() {
-		new Warning().runTaskTimer(plugin, 0, 31);
+	public void warning(String warningType) {
+		new Warning(warningType).runTaskTimer(plugin, 0, 31);
 	}
 }
 
 class Warning extends BukkitRunnable{
 
 	private int counter = 0;
+	private String subtitle;
+	
+	public Warning(String warningType) {
+		if (warningType.equals("baby")) {
+			subtitle = "§3Babies' Night Out";
+		}
+		else if (warningType.equals("invisible")) {
+			subtitle = "§7Now you see me...";
+		}
+		else if (warningType.equals("strength")) {
+			subtitle = "§4Bodybuilding Zombies!";
+		}
+	}
 	
 	@Override
 	public void run() {
@@ -29,6 +42,9 @@ class Warning extends BukkitRunnable{
 			}
 			counter++;
 		} else {
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				player.sendTitle("§7§oFRIGHT NIGHT!", subtitle, 10, 70, 20);
+			}
 			this.cancel();
 		}
 	}
