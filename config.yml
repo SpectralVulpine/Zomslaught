@@ -1,14 +1,18 @@
-# ---- Zomslaught Configuration File ---- #
-#
-# ** Fright Night **
-# 
+# ***************************************
+# **** Zomslaught Configuration File ****
+# ***************************************
+
+# ***************************************
+# -- Fright Night --
+
 # frightTimer: The time in seconds between each Fright Night. Defaults to 1200 (20 minutes).
 frightTimer: 1200
 
 # frightDuration: The time in seconds each Fright Night should last. Defaults to 60.
 frightDuration: 60
 
-# ** Permanight **
-#
+# ***************************************
+# -- Permanight --
+
 # permanight: When set to true, the plugin will set the server to permanent nighttime on startup. Defaults to true.
 permanight: true
