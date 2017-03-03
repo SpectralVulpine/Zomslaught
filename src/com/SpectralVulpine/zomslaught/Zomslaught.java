@@ -13,14 +13,16 @@ public class Zomslaught extends JavaPlugin{
 	
 	public FrightNight fright;
 	public TitleManager titles;
+	public ConfigManager config;
 	
 	public void onEnable() {
+		config = new ConfigManager(this);
 		Commands exe = new Commands(this);
 		fright = new FrightNight(this);
 		titles = new TitleManager(this);
 		this.getCommand("zomslaught").setExecutor(exe);
 		Bukkit.getPluginManager().registerEvents(new SpawnListener(this, fright), this);
-		fright.runTaskTimer(this, 0, 24000);
+		fright.runTaskTimer(this, 0, config.getFrightTimer()*20);
 		Bukkit.getWorld(getActiveWorldName()).setGameRuleValue("doDaylightCycle", "false");
 		Bukkit.getWorld(getActiveWorldName()).setTime(18000);
 	}

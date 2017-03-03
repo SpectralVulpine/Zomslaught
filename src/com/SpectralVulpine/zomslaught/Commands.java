@@ -16,20 +16,20 @@ public class Commands implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("zomslaught")) {
 			if (sender.hasPermission("zomslaught.admin")){
-				if (args.length == 1) {
+				if (args.length == 0) {
+					sender.sendMessage("§6---------§eZomslaught§6------------------------------\n"
+							+ "§e§oCommands:\n"
+							+ "§2/zomslaught fright §7§o- activates Fright Night");
+				}
+				else if (args.length == 1) {
 					if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == false) {
-						sender.sendMessage("§4§oFright Night activated! §4What have you done?!");
+						sender.sendMessage("§e[Zomslaught] §4§oFright Night activated! §4What have you done?!");
 						plugin.fright.run();
 					} 
 					else if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == true) {
-						sender.sendMessage("§cFright Night is already active. Wait a minute before trying again.");
-					} else {
-						sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
+						sender.sendMessage("§e[Zomslaught] §cFright Night is already active. Wait a minute before trying again.");
 					}
 				}
-				/*if (args.length == 0) {
-					sender.sendMessage(cmd.getUsage());  // TODO: Make a message that outlines all commands
-				}*/
 			}
 			return true;
 		}

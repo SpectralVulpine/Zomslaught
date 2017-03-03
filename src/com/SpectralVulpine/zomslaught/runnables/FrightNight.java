@@ -26,7 +26,7 @@ public class FrightNight extends BukkitRunnable{
 			setMode(frights[rng.nextInt(frights.length)]);
 			frightActive = true;
 			plugin.titles.warning(getMode());
-			new Deactivate(this).runTaskLater(plugin, 1200);
+			new Deactivate(this).runTaskLater(plugin, plugin.config.getFrightDuration()*20);
 		}
 	}
 	

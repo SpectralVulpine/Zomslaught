@@ -30,7 +30,7 @@ class Warning extends BukkitRunnable{
 			subtitle = "§7Now you see me...";
 		}
 		else if (warningType.equals("strength")) {
-			subtitle = "§4Bodybuilding Zombies!";
+			subtitle = "§4Bodybuilding Zombies";
 		}
 	}
 	
