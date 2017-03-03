@@ -16,28 +16,23 @@ public class Commands implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("zomslaught")) {
 			if (sender.hasPermission("zomslaught.admin")){
+				if (args.length == 1) {
+					if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == false) {
+						sender.sendMessage("§4§oFright Night activated! §4What have you done?!");
+						plugin.fright.run();
+					} 
+					else if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == true) {
+						sender.sendMessage("§cFright Night is already active. Wait a minute before trying again.");
+					} else {
+						sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
+					}
+				}
 				/*if (args.length == 0) {
 					sender.sendMessage(cmd.getUsage());  // TODO: Make a message that outlines all commands
 				}*/
-				if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == false) {
-					sender.sendMessage("What have you done?!");
-					sender.sendMessage("Tonight will now be §4very dangerous!");
-					plugin.fright.run();
-				} 
-				else if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == true) {
-					sender.sendMessage("§cFright Night is already active. Wait a minute before trying again.");
-				} else {
-					sender.sendMessage("Commands will go here");  // TODO: Add fright night activate/deactivate commands
-				}
 			}
 			return true;
 		}
-		/*if (cmd.getName().equalsIgnoreCase("zombietime")) {
-//			sender.sendMessage(Long.toString(Bukkit.getWorld("world").getTime()));
-			plugin.titles.warning();
-			return true;
-		}*/
 		return false;
-	}
-	
+	}	
 }

@@ -7,19 +7,27 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.SpectralVulpine.zomslaught.Zomslaught;
 
 public class FrightNight extends BukkitRunnable{
-	public Random random = new Random();
+	private Random rng;
 	public String frightMode;
 	public Zomslaught plugin;
 	public boolean frightActive = false;
+	public String[] frights = {"baby", "invisible", "strength"};
 	
 	public FrightNight(Zomslaught zom) {
 		plugin = zom;
+		rng = new Random();
+		rng.setSeed(System.currentTimeMillis() + 1);
 	}
 	
 	public void run() {
-		activate();
-		plugin.titles.warning(getMode());
-		new Deactivate(this).runTaskLater(plugin, 1200);
+		// If not already activate, pick a scenario and activate Fright Night
+		// TODO: Add double whammies!
+		if (!getActive()) {
+			setMode(frights[rng.nextInt(frights.length)]);
+			frightActive = true;
+			plugin.titles.warning(getMode());
+			new Deactivate(this).runTaskLater(plugin, 1200);
+		}
 	}
 	
 	public void setMode(String newMode) {
@@ -36,12 +44,6 @@ public class FrightNight extends BukkitRunnable{
 	
 	public boolean getActive() {
 		return frightActive;
-	}
-	
-	public void activate() {
-		String[] frights = {"baby", "invisible", "strength"};
-		setMode(frights[random.nextInt(frights.length)]);
-		frightActive = true;
 	}
 	
 	public void deactivate() {
