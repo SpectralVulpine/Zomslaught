@@ -23,8 +23,10 @@ public class Zomslaught extends JavaPlugin{
 		this.getCommand("zomslaught").setExecutor(exe);
 		Bukkit.getPluginManager().registerEvents(new SpawnListener(this, fright), this);
 		fright.runTaskTimer(this, 0, config.getFrightTimer()*20);
-		Bukkit.getWorld(getActiveWorldName()).setGameRuleValue("doDaylightCycle", "false");
-		Bukkit.getWorld(getActiveWorldName()).setTime(18000);
+		if (config.getPermanight()) {
+			Bukkit.getWorld(getActiveWorldName()).setGameRuleValue("doDaylightCycle", "false");
+			Bukkit.getWorld(getActiveWorldName()).setTime(18000);
+		}
 	}
 	
 	public String getActiveWorldName() {

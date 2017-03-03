@@ -22,13 +22,23 @@ public class FrightNight extends BukkitRunnable{
 	public void run() {
 		// If not already activate, pick a scenario and activate Fright Night
 		// TODO: Add double whammies!
-		if (!getActive()) {
+		if (!isActive()) {
 			setMode(frights[rng.nextInt(frights.length)]);
 			frightActive = true;
 			plugin.titles.warning(getMode());
 			new Deactivate(this).runTaskLater(plugin, plugin.config.getFrightDuration()*20);
 		}
 	}
+	
+	// TODO: Make custom parameters for command work
+	/*public void runCustomMode(String mode) {
+		if (!isActive()) {
+			setMode(mode);
+			frightActive = true;
+			plugin.titles.warning(getMode());
+			new Deactivate(this).runTaskLater(plugin, plugin.config.getFrightDuration()*20);
+		}		
+	}*/
 	
 	public void setMode(String newMode) {
 		frightMode = newMode;
@@ -42,7 +52,7 @@ public class FrightNight extends BukkitRunnable{
 		frightActive = !frightActive;
 	}
 	
-	public boolean getActive() {
+	public boolean isActive() {
 		return frightActive;
 	}
 	

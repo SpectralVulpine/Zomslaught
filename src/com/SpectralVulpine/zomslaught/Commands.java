@@ -7,6 +7,10 @@ import org.bukkit.command.CommandSender;
 public class Commands implements CommandExecutor{
 	
 	Zomslaught plugin;
+	private String helpOutput = "§6---------§eZomslaught§6------------------------------\n"
+			+ "§e§oCommands:\n"
+			+ "§2/zomslaught fright <mode> §7§o- activates Fright Night";
+	private String frightActivated = "§e[Zomslaught] §4§oFright Night activated! §4What have you done?!";
 	
 	public Commands(Zomslaught zom) {
 		plugin = zom;
@@ -15,24 +19,39 @@ public class Commands implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("zomslaught")) {
-			if (sender.hasPermission("zomslaught.admin")){
-				if (args.length == 0) {
-					sender.sendMessage("§6---------§eZomslaught§6------------------------------\n"
-							+ "§e§oCommands:\n"
-							+ "§2/zomslaught fright §7§o- activates Fright Night");
-				}
-				else if (args.length == 1) {
-					if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == false) {
-						sender.sendMessage("§e[Zomslaught] §4§oFright Night activated! §4What have you done?!");
-						plugin.fright.run();
+			if (sender.hasPermission("zomslaught.admin")) {
+				if (args.length >= 1 && args[0].equalsIgnoreCase("fright")) {
+					if (plugin.fright.isActive() == false) {
+						if (args.length == 1) {
+							plugin.fright.runTask(plugin);
+							sender.sendMessage(frightActivated);
+						}
+						// TODO: Make custom parameters for command work
+						/*else if (args.length == 2) {
+							if (args[1].equalsIgnoreCase("baby") ||
+									args[1].equalsIgnoreCase("invisible") ||
+									args[1].equalsIgnoreCase("strength")) {
+								plugin.fright.runCustomMode(args[1]);
+								sender.sendMessage(frightActivated);
+							}
+							else {
+								sender.sendMessage("§e[Zomslaught] §cInvalid parameter specified: §2<mode>");
+							}
+						}*/
+						else {
+							sender.sendMessage(helpOutput);
+						}
 					} 
-					else if (args[0].equalsIgnoreCase("fright") && plugin.fright.getActive() == true) {
+					else if (plugin.fright.isActive() == true) {
 						sender.sendMessage("§e[Zomslaught] §cFright Night is already active. Wait a minute before trying again.");
 					}
+				} else {
+					sender.sendMessage(helpOutput);
 				}
+			} else {
+				sender.sendMessage("§e[Zomslaught] §cYou do not have the necessary permissions to use this command.");
 			}
 			return true;
-		}
-		return false;
+		} else { return false; }
 	}	
 }

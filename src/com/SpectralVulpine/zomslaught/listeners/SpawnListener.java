@@ -48,7 +48,7 @@ public class SpawnListener implements Listener{
 				Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
 			}
 		}
-		if (fright.getActive()) {
+		if (fright.isActive()) {
 			// These are if's and not else if's so we can implement Double Whammy later
 			if (e.getEntity() instanceof Zombie && fright.getMode() == "baby") {
 				Zombie z = (Zombie)e.getEntity();

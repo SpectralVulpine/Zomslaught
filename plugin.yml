@@ -11,4 +11,4 @@ permissions:
   zomslaught.admin:
     default: op
   zomslaught.basic:
-   default: true
+    default: true
