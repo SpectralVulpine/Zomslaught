@@ -26,11 +26,23 @@ class Warning extends BukkitRunnable{
 		if (warningType.equals("baby")) {
 			subtitle = "§3The Younglings Strike";
 		}
+		else if (warningType.equals("double")) {
+			subtitle = "§9Duplicate! Duplicate!";
+		}
 		else if (warningType.equals("invisible")) {
 			subtitle = "§7Now you see me...";
 		}
-		else if (warningType.equals("strength")) {
-			subtitle = "§4Bodybuilding Zombies";
+		else if (warningType.equals("strength1")) {
+			subtitle = "§2Bodybuilding Zombies";
+		}
+		else if (warningType.equals("strength2")) {
+			subtitle = "§2§lHULKING Zombies";
+		}
+		else if (warningType.equals("swift1")) {
+			subtitle = "§bSpeed Boost";
+		}
+		else if (warningType.equals("swift2")) {
+			subtitle = "§bSpeed §oDEMONS!";
 		}
 	}
 	

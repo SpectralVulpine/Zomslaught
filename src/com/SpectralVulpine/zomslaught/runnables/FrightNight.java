@@ -11,7 +11,7 @@ public class FrightNight extends BukkitRunnable{
 	public String frightMode;
 	public Zomslaught plugin;
 	public boolean frightActive = false;
-	public String[] frights = {"baby", "invisible", "strength"};
+	public String[] frights = {"baby", "double", "invisible", "strength1", "strength2", "swift1", "swift2"};
 	
 	public FrightNight(Zomslaught zom) {
 		plugin = zom;
@@ -24,21 +24,23 @@ public class FrightNight extends BukkitRunnable{
 		// TODO: Add double whammies!
 		if (!isActive()) {
 			setMode(frights[rng.nextInt(frights.length)]);
-			frightActive = true;
+			setActive();
 			plugin.titles.warning(getMode());
+			// TODO: Make existing zombies get the Fright Night effects too
+			/*List<Entity> entityList = Bukkit.getWorld(plugin.getActiveWorldName()).getEntities();
+			switch (getMode()) {
+			case "baby":
+				for (Entity ent : entityList) {
+					if (ent instanceof Zombie) {
+						ent.setBaby(true);
+					}
+				}
+			}*/
 			new Deactivate(this).runTaskLater(plugin, plugin.config.getFrightDuration()*20);
 		}
 	}
 	
 	// TODO: Make custom parameters for command work
-	/*public void runCustomMode(String mode) {
-		if (!isActive()) {
-			setMode(mode);
-			frightActive = true;
-			plugin.titles.warning(getMode());
-			new Deactivate(this).runTaskLater(plugin, plugin.config.getFrightDuration()*20);
-		}		
-	}*/
 	
 	public void setMode(String newMode) {
 		frightMode = newMode;
@@ -49,7 +51,7 @@ public class FrightNight extends BukkitRunnable{
 	}
 	
 	public void setActive() {
-		frightActive = !frightActive;
+		frightActive = true;
 	}
 	
 	public boolean isActive() {

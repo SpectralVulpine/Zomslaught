@@ -1,5 +1,5 @@
 name: Zomslaught
-version: 0.1.0
+version: 0.1.1
 main: com.SpectralVulpine.zomslaught.Zomslaught
 commands:
   zomslaught:

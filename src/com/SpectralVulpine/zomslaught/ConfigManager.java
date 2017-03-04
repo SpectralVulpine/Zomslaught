@@ -1,24 +1,50 @@
 package com.SpectralVulpine.zomslaught;
 
+import org.bukkit.configuration.file.FileConfiguration;
+
 public class ConfigManager {
 	
 	private Zomslaught plugin;
+	public FileConfiguration file;
 	
 	public ConfigManager(Zomslaught zom) {
 		plugin = zom;
 		plugin.saveDefaultConfig();
 		plugin.reloadConfig();
+		file = plugin.getConfig();
+	}
+	/*
+	public int getExtraZombieAmt() {
+		int eza = file.getInt("extraZombieAmt");
+		if (eza < 0) {
+			Bukkit.getLogger().log(Level.WARNING, "[Zomslaught] extraZombieAmt in config.yml is an invalid value!\n"
+					+ "Defaulting to 1...");
+			eza = 1;
+			file.set("extraZombieAmt", eza);
+		}
+		return eza;
 	}
 	
+	public int getExtraZombieChance() {
+		int ezc = file.getInt("extraZombieChance");
+		if (ezc < 0 || ezc > 100) {
+			Bukkit.getLogger().log(Level.WARNING, "[Zomslaught] extraZombieChance in config.yml is an invalid value!\n"
+					+ "Defaulting to 50...");
+			ezc = 50;
+			file.set("extraZombieChance", ezc);
+		}
+		return ezc;
+	}*/
+	
 	public long getFrightTimer() {
-		return plugin.getConfig().getInt("frightTimer");
+		return file.getInt("frightTimer");
 	}
 	
 	public int getFrightDuration() {
-		return plugin.getConfig().getInt("frightDuration");
+		return file.getInt("frightDuration");
 	}
 	
 	public boolean getPermanight() {
-		return plugin.getConfig().getBoolean("permanight");
+		return file.getBoolean("permanight");
 	}
 }
