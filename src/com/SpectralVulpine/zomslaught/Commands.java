@@ -23,7 +23,7 @@ public class Commands implements CommandExecutor{
 				if (args.length >= 1 && args[0].equalsIgnoreCase("fright")) {
 					if (plugin.fright.isActive() == false) {
 						if (args.length == 1) {
-							plugin.fright.runTask(plugin);
+							plugin.fright.run();
 							sender.sendMessage(frightActivated);
 						}
 						// TODO: Make custom parameters for command work

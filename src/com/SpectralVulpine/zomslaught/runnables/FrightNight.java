@@ -11,7 +11,7 @@ public class FrightNight extends BukkitRunnable{
 	public String frightMode;
 	public Zomslaught plugin;
 	public boolean frightActive = false;
-	public String[] frights = {"baby", "invisible", "strength1", "strength2", "swift1", "swift2"};
+	public String[] frights = {"baby", "double", "invisible", "strength1", "strength2", "swift1", "swift2"};
 	
 	public FrightNight(Zomslaught zom) {
 		plugin = zom;
