@@ -9,7 +9,7 @@ public class Commands implements CommandExecutor{
 	Zomslaught plugin;
 	private String helpOutput = "§6---------§eZomslaught§6------------------------------\n"
 			+ "§e§oCommands:\n"
-			+ "§2/zomslaught fright <mode> §7§o- activates Fright Night";
+			+ "§2/zomslaught fright §7§o- activates Fright Night";
 	private String frightActivated = "§e[Zomslaught] §4§oFright Night activated! §4What have you done?!";
 	
 	public Commands(Zomslaught zom) {

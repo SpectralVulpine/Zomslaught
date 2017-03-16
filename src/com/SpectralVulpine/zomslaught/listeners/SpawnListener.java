@@ -46,11 +46,9 @@ public class SpawnListener implements Listener{
 				Location spawnLoc = e.getLocation();
 				e.setCancelled(true);
 				Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
-				if (fright.isActive() && fright.getMode() == "double")
-					Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
 			}
 		}
-		else if (e.getEntity() instanceof Zombie && fright.isActive() == false) {
+		else if (e.getEntity() instanceof Zombie && !fright.isActive() && e.getSpawnReason().equals(SpawnReason.NATURAL)) {
 			int chance = rng.nextInt(100);
 			int ezc = 50;
 			if (chance < ezc) {
@@ -77,7 +75,7 @@ public class SpawnListener implements Listener{
 				else if (fright.getMode() == "swift2") {
 					z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, false));
 				}
-				if (fright.getMode() == "double") {
+				if (fright.getMode() == "double" && e.getSpawnReason() != SpawnReason.CUSTOM) {
 					Location spawnLoc = e.getLocation();
 					Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
 				}
