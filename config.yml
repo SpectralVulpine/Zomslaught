@@ -11,8 +11,19 @@ frightTimer: 1200
 # frightDuration: The time in seconds each Fright Night should last. Defaults to 60.
 frightDuration: 60
 
+# doubleWhammy: When set to true, some Fright Nights will have two effects instead of one. Defaults to true. Options are true or false.
+doubleWhammy: true
+
+# dwChance: The chance of a Double Whammy happening. Must be a number between 0 and 1.
+# Defaults to 0.05 (that is, 5% chance of Double Whammy).
+dwChance: 0.05
+
+# dudChance: The chance of Fright Night being a dud and not happening at all. Must be a number between 0 and 1.
+# Defaults to 0.05 (that is, 5% chance of nothing happening in place of a normal Fright Night).
+dudChance: 0.05
+
 # ***************************************
 # -- Permanight --
 
-# permanight: When set to true, the plugin will set the server to permanent nighttime on startup. Defaults to true.
+# permanight: When set to true, the plugin will set the server to permanent nighttime on startup. Defaults to true. Options are true or false.
 permanight: true

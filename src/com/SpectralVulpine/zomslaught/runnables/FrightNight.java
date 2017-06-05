@@ -1,7 +1,12 @@
 package com.SpectralVulpine.zomslaught.runnables;
 
+//import java.util.List;
 import java.util.Random;
 
+/*import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Zombie;*/
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.SpectralVulpine.zomslaught.Zomslaught;
@@ -22,17 +27,22 @@ public class FrightNight extends BukkitRunnable{
 	public void run() {
 		// If not already activate, pick a scenario and activate Fright Night
 		// TODO: Add double whammies!
+		// Double whammies already have configuration options set for them
 		if (!isActive()) {
-			setMode(frights[rng.nextInt(frights.length)]);
-			setActive();
+			if (rng.nextDouble() <= plugin.config.getDudChance()) {
+				setMode("dud");
+			} else {
+				setMode(frights[rng.nextInt(frights.length)]);
+				setActive();
+			}
 			plugin.titles.warning(getMode());
 			// TODO: Make existing zombies get the Fright Night effects too
-			/*List<Entity> entityList = Bukkit.getWorld(plugin.getActiveWorldName()).getEntities();
+			/*List<LivingEntity> entityList = Bukkit.getWorld(plugin.getActiveWorldName()).getLivingEntities();
 			switch (getMode()) {
 			case "baby":
 				for (Entity ent : entityList) {
 					if (ent instanceof Zombie) {
-						ent.setBaby(true);
+//						ent.setBaby(true);
 					}
 				}
 			}*/

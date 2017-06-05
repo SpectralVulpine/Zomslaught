@@ -1,3 +1,8 @@
+/*
+ * Zomslaught: a zombie survival plugin for Minecraft
+ * Written by SpectralVulpine (http://www.spectralvulpine.com)
+ */
+
 package com.SpectralVulpine.zomslaught;
 
 import java.util.List;

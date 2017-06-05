@@ -36,6 +36,10 @@ public class ConfigManager {
 		return ezc;
 	}*/
 	
+	public double getDudChance() {
+		return file.getDouble("dudChance");
+	}
+	
 	public long getFrightTimer() {
 		return file.getInt("frightTimer");
 	}

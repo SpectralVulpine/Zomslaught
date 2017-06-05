@@ -44,6 +44,9 @@ class Warning extends BukkitRunnable{
 		else if (warningType.equals("swift2")) {
 			subtitle = "§bSpeed §oDEMONS!";
 		}
+		else if (warningType.equals("dud")) {
+			subtitle = "§a...Just kidding!";
+		}
 	}
 	
 	@Override
