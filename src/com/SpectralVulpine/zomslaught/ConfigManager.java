@@ -36,6 +36,10 @@ public class ConfigManager {
 		return ezc;
 	}*/
 	
+	public double getDoubleChance() {
+		return file.getDouble("dwChance");
+	}
+	
 	public double getDudChance() {
 		return file.getDouble("dudChance");
 	}

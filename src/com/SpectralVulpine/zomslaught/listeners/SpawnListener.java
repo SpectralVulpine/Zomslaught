@@ -58,30 +58,38 @@ public class SpawnListener implements Listener{
 		}
 		if (fright.isActive()) {
 			if (e.getEntity() instanceof Zombie) {
-				// These are if's and not else if's to make it easier to implement Double Whammy later
 				Zombie z = (Zombie)e.getEntity();
-				if (fright.getMode() == "baby") {
-					z.setBaby(true);	
+				String effect = fright.getTitle();
+				Integer effectsCounter = 0;
+				if (effect == "doubleWhammy") {
+					effectsCounter = 1;
 				}
-				if (fright.getMode() == "strength1") {
-					z.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1200, 0, false));
-				}
-				else if (fright.getMode() == "strength2") {
-					z.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1200, 1, false));
-				}
-				if (fright.getMode() == "swift") {
-					z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, false));
-				}
-				else if (fright.getMode() == "swift2") {
-					z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, false));
-				}
-				if (fright.getMode() == "double" && e.getSpawnReason() != SpawnReason.CUSTOM) {
-					Location spawnLoc = e.getLocation();
-					Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
-				}
-				if (fright.getMode() == "invisible") {
-					z.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 600, 0, false));
-				}
+				do {
+					effect = fright.getEffects()[effectsCounter];
+					if (effect == "baby") {
+						z.setBaby(true);	
+					}
+					if (effect == "strength1") {
+						z.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1200, 0, false));
+					}
+					else if (effect == "strength2") {
+						z.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1200, 1, false));
+					}
+					if (effect == "swift1") {
+						z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 0, false));
+					}
+					else if (effect == "swift2") {
+						z.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1200, 1, false));
+					}
+					if (effect == "double" && e.getSpawnReason() != SpawnReason.CUSTOM) {
+						Location spawnLoc = e.getLocation();
+						Bukkit.getWorld(plugin.getActiveWorldName()).spawnEntity(spawnLoc, EntityType.ZOMBIE);
+					}
+					if (effect == "invisible") {
+						z.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 600, 0, false));
+					}
+				effectsCounter--;
+				} while (effectsCounter >= 0);
 			}
 		}
 	}
