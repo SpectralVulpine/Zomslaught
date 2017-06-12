@@ -1,6 +1,5 @@
 package com.SpectralVulpine.zomslaught.runnables;
 
-//import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -52,7 +51,7 @@ public class FrightNight extends BukkitRunnable{
 			case "baby":
 				for (Entity ent : entityList) {
 					if (ent instanceof Zombie) {
-//						ent.setBaby(true);
+						ent.setBaby(true);
 					}
 				}
 			}*/

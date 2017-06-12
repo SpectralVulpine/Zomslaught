@@ -1,3 +1,8 @@
+/*
+ * Commands manager for Zomslaught plugin
+ * Written by SpectralVulpine, like the rest of this mess.
+ */
+
 package com.SpectralVulpine.zomslaught;
 
 import org.bukkit.command.Command;

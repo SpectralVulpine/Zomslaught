@@ -53,16 +53,15 @@ class Warning extends BukkitRunnable{
 	
 	@Override
 	public void run() {
-		if (counter < 3) {
+		while (counter < 3) {
 			for (Player player : Bukkit.getOnlinePlayers()) {
 				player.sendTitle("§4§lWARNING", "", 10, 10, 10);
 			}
 			counter++;
-		} else {
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				player.sendTitle("§7§oFRIGHT NIGHT!", subtitle, 10, 70, 20);
-			}
-			this.cancel();
 		}
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			player.sendTitle("§7§oFRIGHT NIGHT!", subtitle, 10, 70, 20);
+		}
+		this.cancel();
 	}
 }
