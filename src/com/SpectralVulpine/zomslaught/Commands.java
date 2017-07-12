@@ -5,14 +5,9 @@
 
 package com.SpectralVulpine.zomslaught;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.EntityType;
-
-import com.SpectralVulpine.zomslaught.mobs.BossZombie;
 
 public class Commands implements CommandExecutor{
 	
@@ -55,9 +50,8 @@ public class Commands implements CommandExecutor{
 					else if (plugin.fright.isActive() == true) {
 						sender.sendMessage("§e[Zomslaught] §cFright Night is already active. Wait a minute before trying again.");
 					}
-				} else if (args.length >= 1 && args[0].equalsIgnoreCase("spawnboss")) {
-					Location loc = Bukkit.getPlayer(sender.getName()).getLocation();
-//					loc.getWorld().spawn(loc, BossZombie<>);
+				} else if (args.length >= 1 && args[0].equalsIgnoreCase("fleshy")) {
+					
 				} else {
 					sender.sendMessage(helpOutput);
 				}
