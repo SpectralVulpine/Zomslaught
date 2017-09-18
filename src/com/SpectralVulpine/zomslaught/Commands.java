@@ -50,8 +50,6 @@ public class Commands implements CommandExecutor{
 					else if (plugin.fright.isActive() == true) {
 						sender.sendMessage("§e[Zomslaught] §cFright Night is already active. Wait a minute before trying again.");
 					}
-				} else if (args.length >= 1 && args[0].equalsIgnoreCase("fleshy")) {
-					
 				} else {
 					sender.sendMessage(helpOutput);
 				}
